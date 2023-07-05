@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { v4 as uuid } from 'uuid';
 import { ToDo } from './ToDo';
 type Props = {
+    [x: string]: any;
     onSubmit: (toDo:ToDo) => void,
 };
 export const ToDoForm = ( props: Props ) => {

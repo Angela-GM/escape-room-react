@@ -10,8 +10,8 @@ export interface ToDo {
 
 type Props = {
   toDos: Array<ToDo>,
-  removeToDo: (id:any) => void,
-  updateToDo: () => void,
+  removeToDo: (id:number) => void,
+  updateToDo: (id:string, value:number) => void,
 }
 
 
@@ -19,11 +19,11 @@ type Props = {
 export const ToDo = ({ toDos, removeToDo, updateToDo }: Props) => {
   const [ edit, setEdit ] = useState<ToDo | unknown>( { id: '', text: '' } );
 
-  const submitUpdate = (value) => {
+  const submitUpdate = (value: number ) => {
     updateToDo(edit.id, value);
     setEdit({
       id: '',
-      value: ''
+      text: ''
     })
   }
 
