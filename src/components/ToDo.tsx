@@ -10,21 +10,21 @@ export interface ToDo {
 
 type Props = {
   toDos: Array<ToDo>,
-  removeToDo: (id:number) => void,
-  updateToDo: (id:string, value:number) => void,
+  removeToDo: (id:string) => void,
+  updateToDo: (id:string, value:any) => void
 }
 
 
 
 export const ToDo = ({ toDos, removeToDo, updateToDo }: Props) => {
-  const [ edit, setEdit ] = useState<ToDo | unknown>( { id: '', text: '' } );
+  const [ edit, setEdit ] = useState<ToDo | any>( { id: null, value: '' } );
 
-  const submitUpdate = (value: number ) => {
+  const submitUpdate = (value: any ) => {
     updateToDo(edit.id, value);
     setEdit({
-      id: '',
-      text: ''
-    })
+      id: null,
+      value: ''
+    });
   }
 
   if (edit.id) {

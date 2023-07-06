@@ -19,11 +19,11 @@ export const ToDoList = () => {
     setToDos(removeArr);
 }
 
-const updateToDo = (toDoId, newValue) => {
+const updateToDo = (id: string, newValue: any) => {
   if (!newValue.text || /^\s*$/.test(newValue.text)) {
       return
   }
-  setToDos(prev => prev.map(item => (item.id === toDoId ? newValue : item)))
+  setToDos(prev => prev.map(item => (item.id === id ? newValue : item)))
 }
 
 
@@ -31,9 +31,8 @@ const updateToDo = (toDoId, newValue) => {
   return (
     <>
 
-    <h1> What's your plan for today? </h1>
-  
-    <ToDoForm onSubmit={addToDo} />
+    <h1> What's your plan for today? </h1>  
+    <ToDoForm edit={null} onSubmit={addToDo} />
     <ToDo toDos={toDos} removeToDo={removeToDo} updateToDo={updateToDo}/>
 
     
